@@ -26,14 +26,15 @@ public class ArgosOpenTechTranslator extends Translator {
         }
 
         try {
-            Connection.Response response = Jsoup.connect("https://translate.argosopentech.com/translate")
+            Connection.Response response = Jsoup.connect("https://translate.fedilab.app/translate")
                     .data("q", text)
                     .data("source", source.getLangCode())
                     .data("target", target.getLangCode())
+                    .data("format", "text")
                     .data("api_key", "")
                     .userAgent("Mozilla")
-                    .header("Referer", "https://translate.argosopentech.com/")
-                    .header("Origin", "https://translate.argosopentech.com")
+                    .header("Referer", "https://translate.fedilab.app/")
+                    .header("Origin", "https://translate.fedilab.app/")
                     .ignoreContentType(true)
                     .method(Connection.Method.POST)
                     .execute();
